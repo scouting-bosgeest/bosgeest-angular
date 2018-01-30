@@ -1,0 +1,47 @@
+{
+  "tracks": [
+    {
+      "id": 0,
+      "artist": "Bob Marley",
+      "title": "No Woman, No Cry",
+      "image": "https://lh5.googleusercontent.com/-AUVAc7BLH28/T1ZYqAtik9I/AAAAAAAAAss/vYsLBJHNtoY/s128/4us.jpg"
+    },
+    {
+      "id": 1,
+      "artist": "Doe maar",
+      "title": "32 jaar",
+      "image": "https://lh5.googleusercontent.com/-AUVAc7BLH28/T1ZYqAtik9I/AAAAAAAAAss/vYsLBJHNtoY/s128/4us.jpg"
+    },
+    {
+      "id": 2,
+      "artist": "Fleetwood Mac",
+      "title": "The Chain",
+      "image": "https://lh5.googleusercontent.com/-AUVAc7BLH28/T1ZYqAtik9I/AAAAAAAAAss/vYsLBJHNtoY/s128/4us.jpg"
+    },
+    {
+      "id": 3,
+      "artist": "Simon & Garfunkel",
+      "title": "The Boxer",
+      "image": "https://lh5.googleusercontent.com/-AUVAc7BLH28/T1ZYqAtik9I/AAAAAAAAAss/vYsLBJHNtoY/s128/4us.jpg"
+    },
+    {
+      "id": 4,
+      "artist": "Doe maar",
+      "title": "32 jaar",
+      "image": "https://lh5.googleusercontent.com/-AUVAc7BLH28/T1ZYqAtik9I/AAAAAAAAAss/vYsLBJHNtoY/s128/4us.jpg"
+    },
+    {
+      "id": 5,
+      "artist": "Fleetwood Mac",
+      "title": "The Chain",
+      "image": "https://lh5.googleusercontent.com/-AUVAc7BLH28/T1ZYqAtik9I/AAAAAAAAAss/vYsLBJHNtoY/s128/4us.jpg"
+    },
+    {
+      "id": 6,
+      "artist": "Simon & Garfunkel",
+      "title": "The Boxer",
+      "image": "https://lh5.googleusercontent.com/-AUVAc7BLH28/T1ZYqAtik9I/AAAAAAAAAss/vYsLBJHNtoY/s128/4us.jpg"
+    }
+  ]
+
+}

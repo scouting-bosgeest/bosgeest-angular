@@ -1,0 +1,30 @@
+<div class="container">
+  <form class="search-form">
+    <div class="input-group">
+      <div class="input-group-addon"><span><i class="glyphicon glyphicon-search"></i></span></div>
+      <input #searchBox id="search-box" (keyup)="search(searchBox.value)" class="form-control" type="text" placeholder="Zoek een nummer...">
+    </div>
+  </form>
+</div>
+
+<!--Contents-->
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Zoekresultaten</h2>
+
+        <div class="row projects" id="tracks">
+          <div class="col-lg-3 col-sm-3 item" *ngFor="let track of tracks$ | async">
+            <img class="img-responsive"
+                 src="{{track.image}}"/>
+            <h4>{{track.title}}</h4>
+            <h5>{{track.artist}}</h5>
+          </div>
+        </div>
+      </div>
+      <app-my-tracks></app-my-tracks>
+    </div>
+  </div>
+</div>
+<!--Contents-->
