@@ -15,8 +15,7 @@ const httpOptions = {
 @Injectable()
 export class SearchService {
 
-  private apiUrl = 'http://localhost:8080/search';
-  private tracks$: Observable<any>;
+  private apiUrl = 'http://api.top60.amsterdam.oxserver.eu:8080/search';
 
   constructor( private http: HttpClient) { }
 

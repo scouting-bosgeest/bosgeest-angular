@@ -5,6 +5,8 @@ import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
 import {SearchService} from '../search.service';
+import {Track} from '../track';
+import {TrackListService} from '../track-list.service';
 
 @Component({
   selector: 'app-search',
@@ -14,13 +16,21 @@ import {SearchService} from '../search.service';
 export class SearchComponent implements OnInit {
 
   private searchTerms = new Subject<string>();
-  tracks$: Observable<any>;
 
-  constructor(private searchService: SearchService) { }
+  tracks$: Observable<any>;
+  // topTracks = [];
+
+  constructor(private searchService: SearchService, public trackListService: TrackListService) { }
 
   search(query: string): void {
     this.searchTerms.next(query);
   }
+
+/*  add(track: Track): void {
+    if (this.topTracks.length < 10) {
+      this.topTracks.push(track);
+    }
+  }*/
 
   ngOnInit(): void {
     this.tracks$ = this.searchTerms.pipe(

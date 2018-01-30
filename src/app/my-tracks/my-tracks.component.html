@@ -1,49 +1,21 @@
 <div class="col-md-4">
   <h2>Mijn Top 10</h2>
-  <ul class="well well-small track-list">
-    <li>
-      <strong>Go your own way</strong> <small>Fleetwood Mac</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-    <li>
-      <strong>Spring</strong> <small>RMB</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-    <li>
-      <strong>Baker street</strong> <small>George Rafferty</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-    <li>
-      <strong>Salse Tequila</strong> <small>Anders Nilsen</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-    <li>
-      <strong>The Rockafeller Skank</strong> <small>Fatboy Slim</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-    <li>
-      <strong>So Lonely</strong> <small>The Police</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-    <li>
-      <strong>32 jaar</strong> <small>Doe Maar</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-    <li>
-      <strong>Spring</strong> <small>RMB</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-    <li>
-      <strong>For the love of money</strong> <small>The O'Jays</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-    <li>
-      <strong>Maneater</strong> <small>Daryl Hall & John Oates</small>
-      <i class="glyphicon glyphicon-remove-circle pull-right remove-icon"> </i>
-    </li>
-  </ul>
+
+
+  <div class="list-group">
+    <div class="list-group-item" *ngFor="let track of tracks; let i = index">
+      <strong class="list-group-item-heading">{{i + 1}}. {{track.title}}</strong><br>
+      <small class="list-group-item-text">{{track.artist}}</small>
+      <div>
+        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true" (click)="trackListService.moveUp(track)"></span>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true" (click)="trackListService.remove(track)"></span>
+        <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" (click)="trackListService.moveDown(track)"></span>
+      </div>
+    </div>
+  </div>
+
   <div class="pull-right">
-    <button type="button" class="btn btn-primary">Verzenden</button>
+    <button type="button" class="btn btn-primary" (click)="submit()">Verzenden</button>
   </div>
 
 </div>

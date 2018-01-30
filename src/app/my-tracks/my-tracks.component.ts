@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Track} from '../track';
+import {TrackListService} from '../track-list.service';
 
 @Component({
   selector: 'app-my-tracks',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyTracksComponent implements OnInit {
 
-  constructor() { }
+  @Input() tracks: Track[];
+
+  constructor(public trackListService: TrackListService) { }
 
   ngOnInit() {
   }
 
+  submit(): void {
+    console.log('Submitting:', this.trackListService.tracks);
+  }
 }

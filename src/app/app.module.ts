@@ -7,6 +7,7 @@ import { SearchComponent } from './search/search.component';
 import { MyTracksComponent } from './my-tracks/my-tracks.component';
 import {SearchService} from './search.service';
 import {HttpClientModule} from '@angular/common/http';
+import {TrackListService} from './track-list.service';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [SearchService],
+  providers: [SearchService, TrackListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

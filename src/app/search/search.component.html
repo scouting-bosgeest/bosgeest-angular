@@ -15,7 +15,7 @@
         <h2>Zoekresultaten</h2>
 
         <div class="row projects" id="tracks">
-          <div class="col-lg-3 col-sm-3 item" *ngFor="let track of tracks$ | async">
+          <div class="col-lg-3 col-sm-3 item" *ngFor="let track of tracks$ | async" (click)="trackListService.add(track)">
             <img class="img-responsive"
                  src="{{track.image}}"/>
             <h4>{{track.title}}</h4>
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <app-my-tracks></app-my-tracks>
+      <app-my-tracks [tracks]="trackListService.tracks"></app-my-tracks>
     </div>
   </div>
 </div>
