@@ -3,7 +3,7 @@
 
 
   <div class="list-group">
-    <div class="list-group-item" *ngFor="let track of tracks; let i = index">
+    <div class="list-group-item track" [class.track-frozen]="trackListService.isFrozen()" *ngFor="let track of tracks; let i = index">
       <strong class="list-group-item-heading">{{i + 1}}. {{track.title}}</strong><br>
       <small class="list-group-item-text">{{track.artist}}</small>
       <div>
@@ -15,7 +15,7 @@
   </div>
 
   <div class="pull-right">
-    <button type="button" class="btn btn-primary" (click)="submit()">Verzenden</button>
+    <button type="button" class="btn btn-primary" (click)="trackListService.submit()">Verzenden</button>
   </div>
 
 </div>

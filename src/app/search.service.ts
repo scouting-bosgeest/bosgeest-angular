@@ -6,6 +6,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Track} from './track';
+import {environment} from '../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,15 +16,13 @@ const httpOptions = {
 @Injectable()
 export class SearchService {
 
-  private apiUrl = 'http://api.top60.amsterdam.oxserver.eu:8080/search';
-
   constructor( private http: HttpClient) { }
 
   searchTracks(query: string): Observable<Track[]> {
     if (!query.trim()) {
       return of([]);
     }
-    return this.http.get<Track[]>(this.apiUrl + `?q=${query}`).pipe(
+    return this.http.get<Track[]>(environment.apiUrl + `/search?q=${query}`).pipe(
       catchError(this.handleError<Track[]>('searchTracks', []))
     );
   }

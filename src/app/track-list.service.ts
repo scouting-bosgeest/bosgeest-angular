@@ -5,13 +5,30 @@ import {Track} from './track';
 export class TrackListService {
 
   tracks = [];
+  private frozen = false;
 
   constructor() {
   }
 
-  add(track: Track) {
+  isFrozen(): boolean {
+    return this.frozen;
+  }
+
+  submit(): boolean {
+    if (this.tracks.length === 10) {
+      this.frozen = true;
+      console.log('Submitting:', this.tracks);
+      return true;
+    }
+    return false;
+  }
+
+  add(newTrack: Track) {
     if (this.tracks.length < 10) {
-      this.tracks.push(track);
+      const filtered = this.tracks.filter(track => track.artist === newTrack.artist && track.title === newTrack.title);
+      if (filtered.length === 0) {
+        this.tracks.push(newTrack);
+      }
     }
   }
 

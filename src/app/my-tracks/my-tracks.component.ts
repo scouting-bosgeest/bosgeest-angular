@@ -9,14 +9,10 @@ import {TrackListService} from '../track-list.service';
 })
 export class MyTracksComponent implements OnInit {
 
-  @Input() tracks: Track[];
-
   constructor(public trackListService: TrackListService) { }
+
 
   ngOnInit() {
   }
 
-  submit(): void {
-    console.log('Submitting:', this.trackListService.tracks);
-  }
 }
