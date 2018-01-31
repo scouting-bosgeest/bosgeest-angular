@@ -1,5 +1,5 @@
 .search-form {
-  margin:40px 5px;
+  margin:15px 5px;
   font:normal 12px sans-serif;
   box-shadow:1px 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
@@ -86,9 +86,20 @@
   min-height:425px;
 }
 
+.item {
+  min-height: 300px;
+  max-height: 300px;
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
 .item:hover {
-  background-color: rgba(90,90,90,0.5);
+  background-color: #6f6f6e;
   cursor: pointer;
+}
+
+.item-image {
+  width: 200px;
 }
 
 .projects-clean .item .name {
@@ -102,4 +113,8 @@
   font-size:15px;
   margin-top:15px;
   margin-bottom:0;
+}
+
+.search-results {
+  padding-left: 40px;
 }

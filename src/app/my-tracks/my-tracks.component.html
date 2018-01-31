@@ -1,9 +1,8 @@
-<div class="col-md-4">
+<div class="col-md-3">
   <h2>Mijn Top 10</h2>
 
-
   <div class="list-group">
-    <div class="list-group-item track" [class.track-frozen]="trackListService.isFrozen()" *ngFor="let track of tracks; let i = index">
+    <div class="list-group-item track" [class.track-frozen]="trackListService.isFrozen()" *ngFor="let track of trackListService.tracks; let i = index">
       <strong class="list-group-item-heading">{{i + 1}}. {{track.title}}</strong><br>
       <small class="list-group-item-text">{{track.artist}}</small>
       <div>
@@ -15,7 +14,9 @@
   </div>
 
   <div class="pull-right">
-    <button type="button" class="btn btn-primary" (click)="trackListService.submit()">Verzenden</button>
+    <button type="button" class="btn btn-primary"
+            *ngIf="trackListService.tracks.length === 10"
+            (click)="trackListService.submit()" [disabled]="trackListService.isFrozen()">Verzenden</button>
   </div>
 
 </div>

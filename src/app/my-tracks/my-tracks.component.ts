@@ -11,7 +11,6 @@ export class MyTracksComponent implements OnInit {
 
   constructor(public trackListService: TrackListService) { }
 
-
   ngOnInit() {
   }
 

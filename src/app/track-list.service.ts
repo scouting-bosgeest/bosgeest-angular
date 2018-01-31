@@ -28,6 +28,7 @@ export class TrackListService {
       const filtered = this.tracks.filter(track => track.artist === newTrack.artist && track.title === newTrack.title);
       if (filtered.length === 0) {
         this.tracks.push(newTrack);
+        console.log(this.tracks);
       }
     }
   }
