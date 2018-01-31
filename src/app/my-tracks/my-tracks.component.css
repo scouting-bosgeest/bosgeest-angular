@@ -3,6 +3,18 @@
 }
 
 .track.track-frozen {
-  background-color: #8f8f8f;
+  background-color: #6f6f6e;
   border-color: #000;
+}
+
+.btn-primary {
+  font-weight: bold;
+  background-color: #f9b231;
+  border-color: #f9b231;
+}
+
+.btn-default {
+  font-weight: bold;
+  background-color: #6f6f6e;
+  border-color: #6f6f6e;
 }

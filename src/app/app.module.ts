@@ -1,13 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 
-import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
-import { MyTracksComponent } from './my-tracks/my-tracks.component';
+import {AppComponent} from './app.component';
+import {SearchComponent} from './search/search.component';
+import {MyTracksComponent} from './my-tracks/my-tracks.component';
 import {SearchService} from './search.service';
 import {HttpClientModule} from '@angular/common/http';
 import {TrackListService} from './track-list.service';
+import {ModalModule} from 'ngx-bootstrap';
+import {FormsModule} from '@angular/forms';
+import {EmailValidationService} from './email-validation.service';
 
 
 @NgModule({
@@ -18,9 +21,11 @@ import {TrackListService} from './track-list.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot(),
+    FormsModule
   ],
-  providers: [SearchService, TrackListService],
+  providers: [SearchService, TrackListService, EmailValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

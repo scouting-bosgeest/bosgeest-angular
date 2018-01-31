@@ -1,11 +1,11 @@
 <div class="container">
-  <form class="search-form">
+  <div class="search-form">
     <div class="input-group">
       <div class="input-group-addon"><span><i class="glyphicon glyphicon-search"></i></span></div>
       <input #searchBox id="search-box" (keyup)="search(searchBox.value)" class="form-control" type="text"
              placeholder="Zoek een nummer...">
     </div>
-  </form>
+  </div>
 </div>
 
 <!--Contents-->
@@ -16,10 +16,10 @@
         <h2>Zoekresultaten</h2>
 
         <div class="row" id="tracks">
-          <div class="panel panel-default col-lg-3 col-sm-3 item" *ngFor="let track of tracks$ | async"
+          <div class="panel panel-default col-lg-3 col-sm-3 col-xs-6 item item-xs item-sm item-md item-lg" *ngFor="let track of tracks$ | async"
                (click)="trackListService.add(track)">
             <div class="panel-body">
-              <img class="img-thumbnail center-block item-image"
+              <img class="img-thumbnail center-block item-image hidden-xs hidden-sm"
                    src="{{track.image}}"/>
               <h4>{{track.title}}</h4>
               <h5>{{track.artist}}</h5>

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Track} from './track';
+import {UserInfo} from './user-info';
 
 @Injectable()
 export class TrackListService {
@@ -14,10 +15,18 @@ export class TrackListService {
     return this.frozen;
   }
 
-  submit(): boolean {
-    if (this.tracks.length === 10) {
-      this.frozen = true;
-      console.log('Submitting:', this.tracks);
+  freeze(): void {
+    this.frozen = true;
+  }
+
+  isSubmittable(): boolean {
+    return this.tracks.length === 10;
+  }
+
+  submit(userInfo: UserInfo): boolean {
+    if (this.isSubmittable()) {
+      this.freeze();
+      console.log('Submitting:', userInfo, this.tracks);
       return true;
     }
     return false;
@@ -28,7 +37,6 @@ export class TrackListService {
       const filtered = this.tracks.filter(track => track.artist === newTrack.artist && track.title === newTrack.title);
       if (filtered.length === 0) {
         this.tracks.push(newTrack);
-        console.log(this.tracks);
       }
     }
   }
