@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://api.top60.amsterdam.oxserver.eu:8080'
+  apiUrl: 'https://api.top60.bosgeest.nl'
 };

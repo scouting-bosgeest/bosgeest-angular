@@ -37,6 +37,7 @@ export class MyTracksComponent {
     this.errorMessage = null;
     this.submitted =  false;
     this.trackListService.tracks = [];
+    this.userInfo = new UserInfo();
   }
 
   validateEmail() {
