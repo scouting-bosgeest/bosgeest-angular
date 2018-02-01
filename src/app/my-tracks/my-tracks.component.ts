@@ -11,7 +11,7 @@ import {EmailValidationService} from '../email-validation.service';
   templateUrl: './my-tracks.component.html',
   styleUrls: ['./my-tracks.component.css']
 })
-export class MyTracksComponent implements OnInit {
+export class MyTracksComponent {
   modalRef: BsModalRef;
   userInfo = new UserInfo();
 
@@ -23,20 +23,24 @@ export class MyTracksComponent implements OnInit {
               private modalService: BsModalService,
               private emailValidationService: EmailValidationService) {
   }
-
-  ngOnInit() {
-  }
-
   openModal(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template, {ignoreBackdropClick: true});
   }
 
   cancel(): void {
     this.modalRef.hide();
   }
 
-  validate(email: String) {
-    this.emailValidationService.isEmailValid(email)
+  reset(): void {
+    this.modalRef.hide();
+    this.emailValid = false;
+    this.errorMessage = null;
+    this.submitted =  false;
+    this.trackListService.tracks = [];
+  }
+
+  validateEmail() {
+    this.emailValidationService.isEmailValid(this.userInfo.email)
       .subscribe(value => this.emailValid = (value.state === 'ALLOWED'));
   }
 
@@ -47,7 +51,6 @@ export class MyTracksComponent implements OnInit {
           if (result.value === 'OK') {
             this.submitted = true;
           } else {
-            console.log("error", result)
             this.errorMessage = result.message;
           }
         });

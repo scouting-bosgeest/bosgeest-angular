@@ -6,9 +6,8 @@ import {of} from 'rxjs/observable/of';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {Ballot} from './ballot';
-import {catchError, map} from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 import {Result} from './result';
-import {mapTo} from 'rxjs/operator/mapTo';
 
 @Injectable()
 export class TrackListService {
@@ -27,17 +26,15 @@ export class TrackListService {
       const ballot = new Ballot();
       ballot.voter = userInfo;
       ballot.tracks = this.tracks;
-      console.log('Submitting:', ballot);
       return this.http.post<Result>(environment.apiUrl + '/submit', ballot).pipe(
         catchError(err => {
           const result = new Result();
           result.value = 'ERROR';
-          result.message = 'Er is een fout opgetreden. Probeer het nog eens.'
+          result.message = 'Er is een fout opgetreden. Probeer het nog eens.';
           return of(result);
         })
       );
     }
-
   }
 
   add(newTrack: Track) {
