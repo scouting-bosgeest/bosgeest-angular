@@ -26,8 +26,11 @@ export class MyTracksComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>): void {
-    this.trackListService.freeze();
     this.modalRef = this.modalService.show(template);
+  }
+
+  cancel(): void {
+    this.modalRef.hide();
   }
 
   submit(): void {

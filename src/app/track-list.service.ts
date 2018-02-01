@@ -6,17 +6,8 @@ import {UserInfo} from './user-info';
 export class TrackListService {
 
   tracks = [];
-  private frozen = false;
 
   constructor() {
-  }
-
-  isFrozen(): boolean {
-    return this.frozen;
-  }
-
-  freeze(): void {
-    this.frozen = true;
   }
 
   isSubmittable(): boolean {
@@ -25,8 +16,8 @@ export class TrackListService {
 
   submit(userInfo: UserInfo): boolean {
     if (this.isSubmittable()) {
-      this.freeze();
       console.log('Submitting:', userInfo, this.tracks);
+      this.tracks = [];
       return true;
     }
     return false;

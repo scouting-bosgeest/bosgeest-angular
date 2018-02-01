@@ -2,8 +2,7 @@
   <h2>Mijn Top 10</h2>
 
   <div class="list-group">
-    <div class="list-group-item track" [class.track-frozen]="trackListService.isFrozen()"
-         *ngFor="let track of trackListService.tracks; let i = index">
+    <div class="list-group-item track" *ngFor="let track of trackListService.tracks; let i = index">
       <strong class="list-group-item-heading">{{i + 1}}. {{track.title}}</strong><br>
       <small class="list-group-item-text">{{track.artist}}</small>
       <div>
@@ -18,8 +17,8 @@
 
   <div class="pull-right">
     <button type="button" class="btn btn-primary"
-            *ngIf="trackListService.tracks.length === 10"
-            (click)="openModal(confirmModal)" [disabled]="trackListService.isFrozen()">Verzenden
+            *ngIf="trackListService.isSubmittable()"
+            (click)="openModal(confirmModal)">Verzenden
     </button>
   </div>
 
@@ -58,7 +57,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" (click)="modalRef.hide()">Annuleren</button>
+      <button type="button" class="btn btn-default" (click)="cancel()">Annuleren</button>
       <button type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid">Verzenden</button>
     </div>
   </form>
