@@ -145,3 +145,9 @@
 .search-results > .col-md-9 {
   margin-bottom: 20px;
 }
+
+.btn-primary {
+  font-weight: bold;
+  background-color: #f9b231;
+  border-color: #f9b231;
+}

@@ -16,7 +16,8 @@
         <h2>Zoekresultaten</h2>
 
         <div class="row" id="tracks">
-          <div class="panel panel-default col-lg-3 col-sm-3 col-xs-6 item item-xs item-sm item-md item-lg" *ngFor="let track of tracks$ | async"
+          <div class="panel panel-default col-lg-3 col-sm-3 col-xs-6 item item-xs item-sm item-md item-lg"
+               *ngFor="let track of tracks$ | async"
                (click)="trackListService.add(track)">
             <div class="panel-body">
               <img class="img-thumbnail center-block item-image hidden-xs hidden-sm"
@@ -28,7 +29,11 @@
         </div>
 
         <div *ngIf="(tracks$ | async)?.length == 0 && searchBox.value.length > 0">
-          Geen resultaten gevonden voor '{{searchBox.value}}'.
+          <p>Geen resultaten gevonden voor '{{searchBox.value}}'.</p>
+          <p>Zelf een obscuur nummer toevoegen? Dat kan!</p>
+          <p>
+            <button class="btn btn-primary" (click)="openModal(addTrackModal)">Nummer toevoegen</button>
+          </p>
         </div>
       </div>
       <app-my-tracks></app-my-tracks>
@@ -36,3 +41,41 @@
   </div>
 </div>
 <!--Contents-->
+
+<!-- Add Track Modal -->
+<ng-template #addTrackModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Nummer toevoegen</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Vul hieronder het nummer in. Deze word dan toegevoegd aan 'Mijn Top 10'. <br> Let op de volgende punten:</p>
+    <ol>
+      <li>Controleer op spelfouten</li>
+      <li>Kloppen de nummer en artiest met elkaar?</li>
+    </ol>
+    <hr>
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label for="artist" class="col-sm-2 control-label">Artiest</label>
+        <div class="col-sm-10">
+          <input type="text" #artist class="form-control" id="artist" required placeholder="Scouting Bosgeest">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Titel</label>
+        <div class="col-sm-10">
+          <input type="text" #title class="form-control" id="title" required placeholder="Bosgeest Yell">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default">Annuleren</button>
+    <button type="button" class="btn btn-primary" (click)="addTrack(artist.value, title.value)"
+            [disabled]="artist.value.length === 0 && title.value.length === 0">Verzenden
+    </button>
+  </div>
+</ng-template>
