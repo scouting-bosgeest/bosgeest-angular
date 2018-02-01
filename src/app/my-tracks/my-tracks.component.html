@@ -39,6 +39,9 @@
         <li *ngFor="let track of trackListService.tracks;"><strong>{{track.title}}</strong> - {{track.artist}}</li>
       </ol>
       <hr>
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage != null && errorMessage.length > 0">
+        <strong>Oeps</strong> {{errorMessage}}
+      </div>
       <div class="form-horizontal">
         <div class="form-group">
           <label for="name" class="col-sm-2 control-label">Naam</label>
@@ -51,8 +54,10 @@
           <label for="email" class="col-sm-2 control-label">E-mail</label>
           <div class="col-sm-10">
             <input type="email" class="form-control" id="email" [(ngModel)]="userInfo.email" name="email"
-                   #email="ngModel" required placeholder="robert.baden.powell@scouts.co.uk">
-            <span class="help-block" *ngIf="!emailValid">Dit e-mail adres is ongeldig of al gebruikt om mee te stemmen.</span>
+                   #email="ngModel" (keyup)="validate(email.value)" required
+                   placeholder="robert.baden.powell@scouts.co.uk">
+            <span class="help-block"
+                  *ngIf="!emailValid">Dit e-mail adres is ongeldig of al gebruikt om mee te stemmen.</span>
           </div>
         </div>
       </div>
