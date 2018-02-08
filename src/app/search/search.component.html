@@ -5,6 +5,7 @@
       <input #searchBox id="search-box" (keyup)="search(searchBox.value)" class="form-control" type="text"
              placeholder="Zoek een nummer...">
     </div>
+    <p class="help-block">Zoek naar jouw favoriete nummers. Als er niks gevonden word heb je de mogelijkheid zelf een nummer toe te voegen.</p>
   </div>
 </div>
 
@@ -73,7 +74,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default">Annuleren</button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">Annuleren</button>
     <button type="button" class="btn btn-primary" (click)="addTrack(artist.value, title.value)"
             [disabled]="artist.value.length === 0 && title.value.length === 0">Verzenden
     </button>

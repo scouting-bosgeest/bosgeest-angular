@@ -15,9 +15,9 @@
     </div>
   </div>
 
-  <div class="pull-right">
+  <div class="pull-left">
     <button type="button" class="btn btn-primary"
-            *ngIf="trackListService.isSubmittable()"
+            [disabled]="!trackListService.isSubmittable()"
             (click)="openModal(confirmModal)">Verzenden
     </button>
   </div>
